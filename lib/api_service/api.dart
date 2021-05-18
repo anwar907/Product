@@ -10,7 +10,6 @@ Future<List<ProductItems>> getProduct() async {
       baseUrl, "index.php/rest/items/search/api_key/teampsisthebest/"));
   if (response.statusCode == 200) {
     final respponseData = jsonDecode(response.body);
-    print("MUDAHAN ARAK DATA $respponseData");
     return (respponseData as List)
         .map((e) => ProductItems.fromJson(e))
         .toList();
