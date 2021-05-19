@@ -34,6 +34,7 @@ class _CartScreenState extends State<CartScreen> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   List<ProductItems> dataProduct = snapshot.data;
+                  var image = dataProduct[0].defaultPhoto;
                   return Container(
                     // margin:
                     //     EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
@@ -59,7 +60,7 @@ class _CartScreenState extends State<CartScreen> {
                                 title: Text(dataProduct[0].title),
                                 subtitle: Text(dataProduct[0].conditionOfItem),
                                 leading: Image.network(
-                                    "https://cdn.eraspace.com/pub/media/catalog/product/cache/184775a204380039ae47e1177f9cfc1b/m/a/macbook_pro_m1_silver_1_2.jpg"),
+                                    "https://ranting.twisdev.com/uploads/$image"),
                                 trailing: Text(
                                   NumberFormat.currency(
                                           locale: 'id-ID',

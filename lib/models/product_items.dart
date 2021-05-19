@@ -123,7 +123,7 @@ class ProductItems {
   PaidStatus paidStatus;
   String photoCount;
   String defaultPhoto;
-  Category category;
+  String category;
   SubCategory subCategory;
   ConditionOfItem itemType;
   ConditionOfItem itemPriceType;
@@ -187,8 +187,8 @@ class ProductItems {
         addedDateStr: addedDateStrValues.map[json["added_date_str"]],
         paidStatus: paidStatusValues.map[json["paid_status"]],
         photoCount: json["photo_count"],
-        defaultPhoto: json["default_photo"]['img_id'],
-        category: Category.fromJson(json["category"]),
+        defaultPhoto: json["default_photo"]['img_path'],
+        category: json["category"]['default_photo']['img_path'],
         subCategory: SubCategory.fromJson(json["sub_category"]),
         itemType: ConditionOfItem.fromJson(json["item_type"]),
         itemPriceType: ConditionOfItem.fromJson(json["item_price_type"]),
@@ -254,7 +254,7 @@ class ProductItems {
         "paid_status": paidStatusValues.reverse[paidStatus],
         "photo_count": photoCount,
         "default_photo": defaultPhoto,
-        "category": category.toJson(),
+        "category": category,
         "sub_category": subCategory.toJson(),
         "item_type": itemType.toJson(),
         "item_price_type": itemPriceType.toJson(),
